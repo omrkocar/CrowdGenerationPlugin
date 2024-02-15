@@ -3,7 +3,7 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "CrowdGeneration",
-	"Description": "",
+	"Description": "Generates crowd",
 	"Category": "Other",
 	"CreatedBy": "Omer Kocar",
 	"CreatedByURL": "",
