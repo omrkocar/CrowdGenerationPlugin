@@ -26,19 +26,6 @@ void ASCharacter::SetData(const FASCharacterData& Data, int seedModifier)
 	CharacterData = Data;
 	CharacterSeed = seedModifier;
 	AnimationStartPosition = FMath::RandRange(0.0f, 1.0f);
-
-	// TODO Omer: Plug this back in. Threw an error during packaging
-	if (Materials.Num() > 0)
-	{
-		const int MatIndex = FMath::RandRange(0, Materials.Num() - 1);
-		GetMesh()->SetMaterial(0, Materials[MatIndex]);
-	}
-
-	if(Meshes.Num() > 0)
-	{
-		const int meshIndex = FMath::RandRange(0, Meshes.Num() - 1);
-		GetMesh()->SetSkeletalMesh(Meshes[meshIndex]);
-	}
 }
 
 bool ASCharacter::IsPartOfGroup(USGroupComponent*& GroupComp, bool& IsLeader)
@@ -134,20 +121,3 @@ bool ASCharacter::FindPosition(int32 SeedModifier)
 	const bool IsValid = IsValidPosition && DistanceToTarget > CharacterData.MinTargetDistance;
 	return IsValid;
 }
-
-#if WITH_EDITOR
-void ASCharacter::PostEditChangeChainProperty(FPropertyChangedChainEvent& PropertyChangedEvent)
-{
-	Super::PostEditChangeChainProperty(PropertyChangedEvent);
-	
-	MaterialIndex = Materials.Num() > 0 ? FMath::Clamp(MaterialIndex, 0, Materials.Num() - 1) : -1;
-	if (MaterialIndex != -1)
-		GetMesh()->SetMaterial(0, Materials[MaterialIndex]);
-
-	MeshIndex = Meshes.Num() > 0 ? FMath::Clamp(MeshIndex, 0, Meshes.Num() - 1) : -1;
-	if (MeshIndex != -1)
-		GetMesh()->SetSkeletalMesh(Meshes[MeshIndex]);
-}
-
-#endif
-
