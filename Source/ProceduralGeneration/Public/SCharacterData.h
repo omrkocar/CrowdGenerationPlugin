@@ -27,8 +27,8 @@ struct FASCharacterData
 	float AnimationPlayRate = 1.0f;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Min Target Distance", ClampMin = 0.0f), Category = "Custom")
-	float MinTargetDistance = 100.0f;
+	float MinTargetDistance = 2000.0f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(DisplayName="Max Target Distance"), Category = "Custom")
-	float MaxTargetDistance = 1000.0f;
+	float MaxTargetDistance = 5000.0f;
 };

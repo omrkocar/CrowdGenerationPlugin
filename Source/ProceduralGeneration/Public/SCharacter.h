@@ -52,7 +52,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Custom", meta = (ClampMin = 0, ClampMax = 2))
 	FASCharacterData CharacterData;
 
-	UPROPERTY(VisibleInstanceOnly, Category = "Custom")
+	UPROPERTY(EditAnywhere, Category = "Custom")
 	int CharacterSeed = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Custom")
