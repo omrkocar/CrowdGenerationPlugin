@@ -8,7 +8,7 @@
 #include "Navigation/CrowdManager.h"
 
  ASAIController::ASAIController(const FObjectInitializer& ObjectInitializer)
- 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UPathFollowingComponent>(TEXT("PathFollowingComponent")))
+ 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCrowdFollowingComponent>(TEXT("PathFollowingComponent")))
  {
     UCrowdFollowingComponent* CrowdFollowingComponent = Cast<UCrowdFollowingComponent>(GetPathFollowingComponent());
     CrowdFollowingComponent->SetCrowdSimulationState(ECrowdSimulationState::Enabled);
